@@ -1703,7 +1703,22 @@ function enumValues(property: parserApi.ds.Property, parentNode: parserApi.hl.IH
                 }
             );
         }
+        if (property.range().isUnion()){
+            var l=(<any>property.range()).left;
+            var r=(<any>property.range()).right;
 
+            var buf=(<any>property)._nodeRange;
+            try {
+                (<any>property)._nodeRange = l;
+                var vls=enumValues(property,parentNode);
+                (<any>property)._nodeRange = r;
+                vls=vls.concat(enumValues(property,parentNode));
+                return vls;
+
+            } finally{
+                (<any>property)._nodeRange=buf;
+            }
+        }
         if(property.range().hasValueTypeInHierarchy()) {
             var valueTypeAdapter = property.range().getAdapter(services.RAMLService);
 
