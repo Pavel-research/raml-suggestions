@@ -5,11 +5,11 @@
   "scripts": {
     "build": "rimraf dist && tsc",
     "generateBrowserVersion": "node dist/browserVersionGenerator/browserVersionGenerator.js",
-    "browserify" : "browserify ./dist/browser-main.js -o ./dist/raml-suggestions.js;",
+    "browserify": "browserify ./dist/browser-main.js -o ./dist/raml-suggestions.js;",
     "test-cov": " ./node_modules/.bin/istanbul cover _mocha dist/test/*Tests.js",
-    "pullall" : "dev-env-installer pullall",
-    "buildall" : "dev-env-installer buildall",
-    "testall" : "dev-env-installer testall",
+    "pullall": "dev-env-installer pullall",
+    "buildall": "dev-env-installer buildall",
+    "testall": "dev-env-installer testall",
     "devInstall": "dev-env-installer install"
   },
   "repository": {
@@ -18,9 +18,10 @@
   },
   "typings": "./dist/index.d.ts",
   "dependencies": {
-    "underscore": "^1.8.3",
+    "@types/node": "^8.0.34",
+    "fuzzaldrin-plus": "^0.3.1",
     "raml-1-parser": "1.1.28",
-    "fuzzaldrin-plus": "^0.3.1"
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "chai": "^2.2.0",
@@ -31,7 +32,7 @@
     "typescript": "2.1.1",
     "rimraf": "*",
     "browserify-global-shim": "^1.0.3",
-    "dev-env-installer":"0.0.5",
+    "dev-env-installer": "0.0.5",
     "webpack": "1.4.2",
     "json-loader": "^0.5.1"
   },
